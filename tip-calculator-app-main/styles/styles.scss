@@ -1,0 +1,126 @@
+$lstitms:hsl(183, 100%, 15%);
+$drktxt: hsl(186, 14%, 43%);
+$color: hsl(184, 14%, 56%);
+$bkgrndcolor: hsl(185, 41%, 84%);
+$form: hsl(189, 41%, 97%);
+$clicked: hsl(172, 67%, 45%);
+
+$maintxt: 14px;
+$formInput: 24px;
+
+@mixin flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: row;
+}
+
+*, 
+*:before, 
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Space Mono', monospace;
+}
+
+html, 
+body {
+    height: 100%;
+}
+
+body {
+    background-color: $bkgrndcolor;
+
+    .app-name {
+        color: $lstitms;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 700;
+        line-height: 40px;
+        letter-spacing: 10px;
+        font-size: 25px;
+        margin: 40px 0;
+    }
+}
+
+.main-content {
+    background-color: white;
+    height: 100%;
+    border-radius: 20px;
+    padding: 10%;
+
+    form {
+        label {
+            font-size: $maintxt;
+            font-weight: 700;
+            color: $drktxt;
+        }
+
+        input {
+            width: 100%;
+            border: none;
+            height: 40px;
+            border-radius: 5px;
+            margin: 10px 0 20px 0;
+            text-align: right;
+            font-size: $formInput;
+            font-weight: 700;
+            color: $lstitms;
+        }
+
+        #bill {
+            background: url(../images/icon-dollar.svg) no-repeat 10px 10px;
+            background-color: $form;
+        }
+
+        #number-of-people {
+            background: url(../images/icon-person.svg) no-repeat 10px 10px;
+            background-color: $form;
+        }
+    }
+
+    h1 {
+        color: $drktxt;
+        font-size: $maintxt;
+    }
+
+    ul {
+        @include flex;
+        list-style: none;
+
+        li {
+            padding: 0px;
+            flex-basis: 45%;
+            text-align: center;
+            margin: 10px 10px 10px 0;
+        }
+
+
+        a {
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            background-color: $lstitms;
+            color: white;
+            border-radius: 5px;
+            font-weight: 700;
+        }
+
+    }
+
+    #custom {
+        display: block;
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        text-align: center;
+        border-radius: 5px;
+        background-color: $form;
+        border: none;
+        font-weight: 700;
+        font-size: 15px;
+    }
+
+}
