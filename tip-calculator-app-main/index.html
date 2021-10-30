@@ -20,7 +20,7 @@
 
     <form>
       <label for="bill">Bill</label><br>
-      <input type="number" id="bill" name="bill">
+      <input type="number" id="bill" name="bill" placeholder="0">
     </form>
 
     <h1>Select Tip %</h1>
@@ -35,16 +35,25 @@
     
     <form>
       <label for="number-of-people">Number of People</label><br>
-      <input type="number" id="number-of-people" name="number-of-people">
+      <input type="number" id="number-of-people" name="number-of-people" placeholder="0">
     </form>
     
 
     <div class="tip-blk">
-      <h1>Tip Amount</h1>
-      <p>/ person</p>
 
-      <h1>Total</h1>
-      <p>/ person</p>
+      <div class="total">$0.00</div>
+
+      <div class="tip-col">
+        <h1>Tip Amount</h1>
+        <p>/ person</p>
+      </div>
+
+      <div class="total">$0.00</div>
+
+      <div class="total-col">
+        <h1>Total</h1>
+        <p>/ person</p>
+      </div>
 
       <a href=#>Reset</a>
     </div>

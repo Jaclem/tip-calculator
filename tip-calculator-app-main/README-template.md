@@ -94,6 +94,7 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 - [How to use Sass](https://www.youtube.com/watch?v=Zz6eOVaaelI&ab_channel=DevEd) - This resource was good not only to learn sass but also to show me to install the sass compiler so that it will work on browser.
 
+- [Flexbox ](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Aligning_Items_in_a_Flex_Container) - This resource as well as a YouTube video or two were ways in which I figured out how to use Flexbox accurately for my content
 
 **Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
 

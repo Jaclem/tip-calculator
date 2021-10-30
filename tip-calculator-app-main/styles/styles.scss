@@ -11,8 +11,17 @@ $formInput: 24px;
 @mixin flex {
     display: flex;
     flex-wrap: wrap;
-    justify-content: row;
+    flex-direction: row;
 }
+
+@mixin flex-col {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 50%;
+    height: 50px;
+}
+
 
 *, 
 *:before, 
@@ -26,6 +35,10 @@ $formInput: 24px;
 html, 
 body {
     height: 100%;
+
+    @media screen and (min-width: 1440px) {
+        height: 0;
+    }
 }
 
 body {
@@ -40,16 +53,32 @@ body {
         letter-spacing: 10px;
         font-size: 25px;
         margin: 40px 0;
+
+        @media screen and (min-width: 1440px) {
+            margin: 70px 0;
+        }
     }
 }
 
 .main-content {
     background-color: white;
-    height: 100%;
     border-radius: 20px;
     padding: 10%;
 
+    @media screen and (min-width: 1440px) {
+        width: 70%;
+        height: 450px;
+        margin: 0 auto;
+        padding: 60px;
+        position: relative;
+     }
+
     form {
+
+        @media screen and (min-width: 1440px) {
+            width: 50%;
+         }
+
         label {
             font-size: $maintxt;
             font-weight: 700;
@@ -66,6 +95,7 @@ body {
             font-size: $formInput;
             font-weight: 700;
             color: $lstitms;
+
         }
 
         #bill {
@@ -88,11 +118,21 @@ body {
         @include flex;
         list-style: none;
 
+        @media screen and (min-width: 1440px) {
+            width: 50%;
+            float: left;
+         }
+
         li {
             padding: 0px;
             flex-basis: 45%;
             text-align: center;
             margin: 10px 10px 10px 0;
+
+            @media screen and (min-width: 1440px) {
+                flex-basis: 25%;
+                flex-grow: 1;
+             }
         }
 
 
@@ -106,6 +146,10 @@ body {
             color: white;
             border-radius: 5px;
             font-weight: 700;
+        }
+
+        a:focus {
+            background-color: $clicked;
         }
 
     }
@@ -123,4 +167,67 @@ body {
         font-size: 15px;
     }
 
+    .tip-blk {
+        background-color: $lstitms;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 10px;
+
+        @media screen and (min-width: 1440px) {
+            width: 40%;
+            margin-right: auto;
+            position: absolute;
+            top: 10%;
+            left: 55%;
+            height: 360px;
+            padding: 40px;
+         }
+
+        .tip-col {
+            @include flex-col;
+        }
+
+        .total-col {
+            @include flex-col;
+        }
+
+        .total {
+            @include flex-col;
+            float: right;
+            width: 50%;
+            color: $clicked;
+            font-size: $formInput;
+            text-align: right;
+            font-weight: 700;
+        }
+
+        h1 {
+            color: white;
+            font-weight: 500;
+
+        }
+
+        p {
+            color: $bkgrndcolor;
+            font-size: 12px;
+        }
+
+        a {
+            display: block;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            background-color: $clicked;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: $lstitms;
+
+            @media screen and (min-width: 1440px) {
+                margin-top: 150px;
+            }  
+        }
+    }
 }
