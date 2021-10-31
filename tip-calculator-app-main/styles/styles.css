@@ -155,7 +155,7 @@ body .app-name {
   width: 100%;
   height: 100%;
   padding: 10px;
-  text-align: center;
+  text-align: right;
   border-radius: 5px;
   background-color: #f4fafa;
   border: none;
@@ -194,6 +194,12 @@ body .app-name {
           flex-direction: column;
   width: 50%;
   height: 50px;
+}
+
+@media screen and (min-width: 1440px) {
+  .main-content .tip-blk .tip-col {
+    height: 80px;
+  }
 }
 
 .main-content .tip-blk .total-col {
@@ -256,7 +262,7 @@ body .app-name {
 
 @media screen and (min-width: 1440px) {
   .main-content .tip-blk a {
-    margin-top: 150px;
+    margin-top: 120px;
   }
 }
 /*# sourceMappingURL=styles.css.map */
