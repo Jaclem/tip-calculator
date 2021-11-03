@@ -151,6 +151,9 @@ body {
         a:focus {
             background-color: $clicked;
         }
+        a:focus::after{
+            background-color: $clicked;
+        }
 
     }
 

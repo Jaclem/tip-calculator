@@ -91,3 +91,12 @@ We love receiving feedback! We're always looking to improve our challenges and o
 This challenge is completely free. Please share it with anyone who will find it useful for practice.
 
 **Have fun building!** 🚀
+
+for (let percentage of percentages) {
+    percentage.addEventListener('click', detect, false);
+
+    function detect() {
+        return tipAmount = percentage.id / 100; // divides the id percentage value by 100 giving the decimal value needed to calculate
+        // console.log(tipAmount);
+    }
+}

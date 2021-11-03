@@ -25,11 +25,11 @@
 
     <h1>Select Tip %</h1>
     <ul>
-      <li><a href="#" id="5">5%</a></li>
-      <li><a href="#" id="10">10%</a></li>
-      <li><a href="#" id="15">15%</a></li>
-      <li><a href="#" id="25">25%</a></li>
-      <li><a href="#" id="50">50%</a></li>
+      <li><a href="#" onclick="detect(0.05)">5%</a></li>
+      <li><a href="#" onclick="detect(0.1)">10%</a></li>
+      <li><a href="#" onclick="detect(0.15)">15%</a></li>
+      <li><a href="#" onclick="detect(0.25)">25%</a></li>
+      <li><a href="#" onclick="detect(0.5)">50%</a></li>
       <li><input type="number" id="custom" name="custom" placeholder="Custom"></li>
     </ul>
     
@@ -41,14 +41,14 @@
 
     <div class="tip-blk">
 
-      <div class="total">$0.00</div>
+      <div class="total" id="tip-amount">$0.00</div>
 
       <div class="tip-col">
         <h1>Tip Amount</h1>
         <p>/ person</p>
       </div>
 
-      <div class="total">$0.00</div>
+      <div class="total" id="tip-total">$0.00</div>
 
       <div class="total-col">
         <h1>Total</h1>
