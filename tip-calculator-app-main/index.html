@@ -18,6 +18,7 @@
 
   <div class="main-content">
 
+    <h2 id="error-msg"></h2>
     <form>
       <label for="bill">Bill</label><br>
       <input type="number" step="0.01" id="bill" name="bill" placeholder="0">
@@ -25,14 +26,15 @@
 
     <h1>Select Tip %</h1>
     <ul>
-      <li><a href="#" onclick="detect(0.05)">5%</a></li>
-      <li><a href="#" onclick="detect(0.1)">10%</a></li>
-      <li><a href="#" onclick="detect(0.15)">15%</a></li>
-      <li><a href="#" onclick="detect(0.25)">25%</a></li>
-      <li><a href="#" onclick="detect(0.5)">50%</a></li>
+      <li><button type="button" id="0.05" class="buttons">5%</button></li>
+      <li><button type="button" id="0.1" class="buttons">10%</button></li>
+      <li><button type="button" id="0.15" class="buttons">15%</button></li>
+      <li><button type="button" id="0.25" class="buttons">25%</button></li>
+      <li><button type="button" id="0.5" class="buttons">50%</button></li>
       <li><input type="number" id="custom" name="custom" placeholder="Custom"></li>
     </ul>
     
+    <h2 id="error-msg-ppl"></h2>
     <form>
       <label for="number-of-people">Number of People</label><br>
       <input type="number" id="number-of-people" name="number-of-people" placeholder="0">

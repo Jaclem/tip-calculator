@@ -1,30 +1,39 @@
+const inputBill = document.getElementById('bill');
+const billAmount = Number(document.getElementById('bill').value);
+const inputPeople = document.getElementById('number-of-people');
+const peopleAmount = Number(document.getElementById('bill').value);
+const inputCustom = document.getElementById('custom');
+const customAmount = Number(document.getElementById('custom').value);
+const error = document.getElementById('error-msg');
+const percentages = document.querySelectorAll('.buttons');
 
-window.onload = function() {
-    const input = document.getElementById('bill').focus();
+
+// function that works when page is loaded to focus on the Bill form and if it is left empty it 
+// lets the user know they cannot leave this field blank
+window.onload = () => {   
+    inputBill.focus();
 }
 
-function detect(tip) {
-    const people = document.getElementById("number-of-people");
+percentages.forEach(percentage => {
+    percentage.addEventListener('click', (e)=>{
+        e.target.classList.add('clicked');
+    })
+})
 
 
-    // Treats the reset button as a clickable value that will execute the calculate function when clicked.
-    const reset = document.getElementById('reset').addEventListener("click", calculate);
+// event listeners //
 
-    function calculate() {
-        const billAmount = document.getElementById('bill').value;
-        const customTip = document.getElementById('custom').value;
-        const amountOfPeople = document.getElementById('number-of-people').value;
+// checks if the input is not focused and fires event if the input remains empty.
+inputBill.addEventListener('blur', (e) => {
+    if(e.target.value != ''){
+        e.target.style.border = "2px solid green";
+    }   
+})
 
-        let tipPrice = billAmount * tip / amountOfPeople;
-        // + directly infront of the variable keeps it a number value rather than a string.
-        let tipTotal = +billAmount + +tipPrice;
-    
-        // grabs the default $0.00 and adds the tipPrice element to it when reset is clicked.
-        document.getElementById('tip-amount').innerText = "$" + tipPrice.toFixed(2);
-        document.getElementById('tip-total').innerText = "$" + tipTotal.toFixed(2);
+inputPeople.addEventListener('blur', (e)=>{
+    if(e.target.value != ''){
+        e.target.style.border = "2px solid green";
     }
-}
+})
 
-
-
-
+// calculations //

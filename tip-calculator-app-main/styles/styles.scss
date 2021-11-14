@@ -107,11 +107,33 @@ body {
             background: url(../images/icon-person.svg) no-repeat 10px 10px;
             background-color: $form;
         }
+
+
     }
 
     h1 {
         color: $drktxt;
         font-size: $maintxt;
+    }
+
+    // h2 after error message
+    .error {
+        font-weight: 700;
+        color: red;
+        font-size: $maintxt;
+        text-align: center;
+        position: absolute;
+        left: 400px;
+    }
+
+    .error-ppl {
+        font-weight: 700;
+        color: red;
+        font-size: $maintxt;
+        text-align: center;
+        position: absolute;
+        left: 400px;
+        bottom: 124px;
     }
 
     ul {
@@ -136,7 +158,8 @@ body {
         }
 
 
-        a {
+        button {
+            cursor: pointer;
             text-decoration: none;
             display: block;
             width: 100%;
@@ -146,13 +169,6 @@ body {
             color: white;
             border-radius: 5px;
             font-weight: 700;
-        }
-
-        a:focus {
-            background-color: $clicked;
-        }
-        a:focus::after{
-            background-color: $clicked;
         }
 
     }
@@ -238,4 +254,10 @@ body {
             }  
         }
     }
+
+    .clicked {
+        background-color: $clicked;
+    }
 }
+
+

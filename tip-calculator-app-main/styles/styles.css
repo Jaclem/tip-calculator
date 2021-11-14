@@ -96,6 +96,25 @@ body .app-name {
   font-size: 14px;
 }
 
+.main-content .error {
+  font-weight: 700;
+  color: red;
+  font-size: 14px;
+  text-align: center;
+  position: absolute;
+  left: 400px;
+}
+
+.main-content .error-ppl {
+  font-weight: 700;
+  color: red;
+  font-size: 14px;
+  text-align: center;
+  position: absolute;
+  left: 400px;
+  bottom: 124px;
+}
+
 .main-content ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -134,7 +153,8 @@ body .app-name {
   }
 }
 
-.main-content ul a {
+.main-content ul button {
+  cursor: pointer;
   text-decoration: none;
   display: block;
   width: 100%;
@@ -144,10 +164,6 @@ body .app-name {
   color: white;
   border-radius: 5px;
   font-weight: 700;
-}
-
-.main-content ul a:focus {
-  background-color: #26c0ab;
 }
 
 .main-content #custom {
@@ -264,5 +280,9 @@ body .app-name {
   .main-content .tip-blk a {
     margin-top: 120px;
   }
+}
+
+.main-content .clicked {
+  background-color: #26c0ab;
 }
 /*# sourceMappingURL=styles.css.map */
