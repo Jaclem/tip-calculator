@@ -18,6 +18,14 @@ window.onload = () => {
 
 
 percentages.forEach(percentage => {
+    // removes input from custom percent input if clicked
+    percentage.addEventListener('click', () =>{
+        inputCustom.value = '';
+        (document.querySelector('.clicked')) ? document.querySelector('.clicked').classList.remove('clicked') : '';
+        percentage.classList.add('clicked');
+    })
+
+    // calculations
     percentage.addEventListener('click', (e) => {
         // based on: https://travis.media/how-to-add-and-remove-a-class-from-list-items-with-pure-javascript/
         (document.querySelector('.clicked')) ? document.querySelector('.clicked').classList.remove('clicked') : '';
@@ -71,8 +79,6 @@ percentages.forEach(percentage => {
                 totalText.innerText = totalBill.toFixed(2);
             }
         });
-
-
 
         // resets the entire page
         resetBtn.addEventListener('click', ()=> {
