@@ -133,3 +133,15 @@ inputPeople.addEventListener('blur', (e)=>{
     }
 });
 
+// resets the entire page
+resetBtn.addEventListener('click', ()=> {
+    inputBill.value = '';
+    inputPeople.value = '';
+    inputCustom.value = '';
+    // percentage.classList.remove('clicked');
+    tipText.innerText = '$0.00';
+    totalText.innerText = '$0.00';
+    inputBill.style.border = 'none';
+    inputPeople.style.border = 'none';
+});
+
