@@ -39,7 +39,7 @@ percentages.forEach(percentage => {
 
         } else {
             totalTip = inputBill.value * tip / inputPeople.value;
-            totalBill = totalTip + Number(inputBill.value);
+            totalBill = inputBill.value / inputPeople.value + totalTip;
 
             tipText.innerText = totalTip.toFixed(2);
             totalText.innerText = totalBill.toFixed(2);
@@ -50,7 +50,7 @@ percentages.forEach(percentage => {
         inputBill.addEventListener('input', (e)=>{
             if(inputPeople.value != ''){
                 totalTip = inputBill.value * tip / inputPeople.value;
-                totalBill = totalTip + Number(inputBill.value);
+                totalBill = inputBill.value / inputPeople.value + totalTip;
 
                 tipText.innerText = totalTip.toFixed(2);
                 totalText.innerText = totalBill.toFixed(2);
@@ -63,7 +63,7 @@ percentages.forEach(percentage => {
 
             if(inputBill.value != '' && inputPeople.value != ''){
                 totalTip = inputBill.value * customTip / inputPeople.value;
-                totalBill = totalTip + Number(inputBill.value);
+                totalBill = inputBill.value / inputPeople.value + totalTip;
         
                 tipText.innerText = totalTip.toFixed(2);
                 totalText.innerText = totalBill.toFixed(2);
@@ -73,7 +73,7 @@ percentages.forEach(percentage => {
         inputPeople.addEventListener('input', ()=>{
             if(inputBill.value != ''){
                 totalTip = inputBill.value * tip / inputPeople.value;
-                totalBill = totalTip + Number(inputBill.value);
+                totalBill = inputBill.value / inputPeople.value + totalTip;
 
                 tipText.innerText = totalTip.toFixed(2);
                 totalText.innerText = totalBill.toFixed(2);
