@@ -9,12 +9,49 @@ const resetBtn = document.getElementById('reset');
 let totalTip = 0;
 let totalBill = 0;
 let tip = 0;
+let customTip = 0;
 
 // function that works when page is loaded to focus on the Bill form and if it is left empty it 
 // lets the user know they cannot leave this field blank
 window.onload = () => {   
     inputBill.focus();
 }
+
+inputCustom.addEventListener('input', ()=>{
+    customTip = inputCustom.value / 100;
+    // percentage.classList.remove('clicked');
+
+    if(inputBill.value != '' && inputPeople.value != ''){
+        totalTip = inputBill.value * customTip / inputPeople.value;
+        totalBill = inputBill.value / inputPeople.value + totalTip;
+
+        tipText.innerText = totalTip.toFixed(2);
+        totalText.innerText = totalBill.toFixed(2);
+    }
+});
+
+inputBill.addEventListener('input', (e)=>{
+    if(inputPeople.value != ''){
+        totalTip = inputBill.value * customTip / inputPeople.value;
+        totalBill = inputBill.value / inputPeople.value + totalTip;
+
+        tipText.innerText = totalTip.toFixed(2);
+        totalText.innerText = totalBill.toFixed(2);
+    }
+});
+
+inputPeople.addEventListener('input', ()=>{
+
+    if(inputBill.value != ''){
+        totalTip = inputBill.value * customTip / inputPeople.value;
+        totalBill = inputBill.value / inputPeople.value + totalTip;
+
+        tipText.innerText = totalTip.toFixed(2);
+        totalText.innerText = totalBill.toFixed(2);
+    }
+});
+
+
 
 
 percentages.forEach(percentage => {
@@ -57,20 +94,8 @@ percentages.forEach(percentage => {
             }
         });
 
-        inputCustom.addEventListener('input', ()=>{
-            let customTip = inputCustom.value / 100;
-            percentage.classList.remove('clicked');
-
-            if(inputBill.value != '' && inputPeople.value != ''){
-                totalTip = inputBill.value * customTip / inputPeople.value;
-                totalBill = inputBill.value / inputPeople.value + totalTip;
-        
-                tipText.innerText = totalTip.toFixed(2);
-                totalText.innerText = totalBill.toFixed(2);
-            }
-        });
-
         inputPeople.addEventListener('input', ()=>{
+
             if(inputBill.value != ''){
                 totalTip = inputBill.value * tip / inputPeople.value;
                 totalBill = inputBill.value / inputPeople.value + totalTip;
