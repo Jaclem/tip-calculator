@@ -18,7 +18,8 @@
 
   <div class="main-content">
 
-    <h2 id="error-msg"></h2>
+    <h2 id="error-msg" class="error">Can't be zero</h2>
+    <h2 id="error-msg-negative" class="error">Can't be Negative</h2>
     <form>
       <label for="bill">Bill</label><br>
       <input type="number" step="0.01" id="bill" name="bill" placeholder="0">
@@ -34,7 +35,8 @@
       <li><input type="number" id="custom" name="custom" placeholder="Custom"></li>
     </ul>
     
-    <h2 id="error-msg-ppl"></h2>
+    <h2 id="error-msg-ppl" class="error-ppl">Can't be zero</h2>
+    <h2 id="error-msg-ppl-negative" class="error-ppl">Can't be Negative</h2>
     <form>
       <label for="number-of-people">Number of People</label><br>
       <input type="number" id="number-of-people" name="number-of-people" placeholder="0">
@@ -57,7 +59,7 @@
         <p>/ person</p>
       </div>
 
-      <a href=# id="reset">Reset</a>
+      <a href=# id="reset" class="reset">Reset</a>
     </div>
   </div>
 

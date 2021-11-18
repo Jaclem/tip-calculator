@@ -102,7 +102,14 @@ body .app-name {
   font-size: 14px;
   text-align: center;
   position: absolute;
-  left: 400px;
+  left: 100px;
+  visibility: hidden;
+}
+
+@media screen and (max-width: 1440px) {
+  .main-content .error {
+    left: 50%;
+  }
 }
 
 .main-content .error-ppl {
@@ -111,8 +118,20 @@ body .app-name {
   font-size: 14px;
   text-align: center;
   position: absolute;
-  left: 400px;
+  left: 35%;
   bottom: 124px;
+  visibility: hidden;
+}
+
+@media screen and (max-width: 1440px) {
+  .main-content .error-ppl {
+    left: 60%;
+    bottom: 411px;
+  }
+}
+
+.main-content .visibility {
+  visibility: visible;
 }
 
 .main-content ul {
@@ -280,6 +299,16 @@ body .app-name {
   .main-content .tip-blk a {
     margin-top: 120px;
   }
+}
+
+.main-content .tip-blk .reset {
+  background-color: gray;
+  cursor: default;
+}
+
+.main-content .tip-blk .btn-color {
+  background-color: #26c0ab;
+  cursor: pointer;
 }
 
 .main-content .clicked {

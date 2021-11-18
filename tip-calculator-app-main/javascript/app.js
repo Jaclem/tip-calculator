@@ -2,6 +2,9 @@ const inputBill = document.getElementById('bill');
 const inputPeople = document.getElementById('number-of-people');
 const inputCustom = document.getElementById('custom');
 const error = document.getElementById('error-msg-ppl');
+const errorNeg = document.getElementById('error-msg-ppl-negative');
+const errorBill = document.getElementById('error-msg');
+const errorBillNeg = document.getElementById('error-msg-negative');
 const percentages = document.querySelectorAll('.buttons');
 const tipText = document.getElementById('tip-amount');
 const totalText = document.getElementById('tip-total');
@@ -17,41 +20,109 @@ window.onload = () => {
     inputBill.focus();
 }
 
+
 inputCustom.addEventListener('input', ()=>{
     customTip = inputCustom.value / 100;
     // percentage.classList.remove('clicked');
 
-    if(inputBill.value != '' && inputPeople.value != ''){
-        totalTip = inputBill.value * customTip / inputPeople.value;
-        totalBill = inputBill.value / inputPeople.value + totalTip;
+    if(parseInt(inputPeople.value) > 0 && parseFloat(inputBill.value) > 0 && parseInt(inputCustom.value) > 0){
+
+        totalTip = parseFloat(inputBill.value) * customTip / parseInt(inputPeople.value);
+        totalBill = parseFloat(inputBill.value) / parseInt(inputPeople.value) + totalTip;
 
         tipText.innerText = totalTip.toFixed(2);
         totalText.innerText = totalBill.toFixed(2);
+    } else {
+
+    }
+
+    // adds reset button functionality if input is true
+    if(inputCustom.value != ''){
+        resetBtn.classList.add('btn-color');
+    }
+    else if(inputCustom.value == ''){
+        resetBtn.classList.remove('btn-color');
     }
 });
 
-inputBill.addEventListener('input', (e)=>{
-    if(inputPeople.value != ''){
-        totalTip = inputBill.value * customTip / inputPeople.value;
-        totalBill = inputBill.value / inputPeople.value + totalTip;
+inputBill.addEventListener('input', ()=>{
+    
+    if(parseInt(inputPeople.value) > 0 && parseFloat(inputBill.value) > 0 && parseInt(inputCustom.value) > 0){
+        totalTip = parseFloat(inputBill.value) * customTip / parseInt(inputPeople.value);
+        totalBill = parseFloat(inputBill.value) / parseInt(inputPeople.value) + totalTip;
 
         tipText.innerText = totalTip.toFixed(2);
         totalText.innerText = totalBill.toFixed(2);
+    } else {
+
+    }
+
+    // adds reset button functionality if input is true
+    if(inputBill.value != ''){
+        resetBtn.classList.add('btn-color');
+    }
+    else if(inputBill.value == '' && inputPeople.value == ''){
+        resetBtn.classList.remove('btn-color');
+    }
+});
+
+// checks if there is an input for Bill and if not it throws an error
+inputBill.addEventListener('blur', ()=>{
+    if(inputBill.value == ''){
+        errorBill.classList.add('visibility');
+    }
+
+    if(inputBill.value != ''){
+        errorBill.classList.remove('visibility');
+    }
+});
+
+// checks if the Bill amount is negative and so not it throws an error
+inputBill.addEventListener('blur', ()=>{
+    if(parseInt(inputBill.value) < 0){
+        errorBillNeg.classList.add('visibility');
+    }
+
+    if(parseInt(inputBill.value) > 0){
+        errorBillNeg.classList.remove('visibility');
     }
 });
 
 inputPeople.addEventListener('input', ()=>{
 
-    if(inputBill.value != ''){
-        totalTip = inputBill.value * customTip / inputPeople.value;
-        totalBill = inputBill.value / inputPeople.value + totalTip;
+    if(parseFloat(inputBill.value) > 0 && parseInt(inputPeople.value) > 0 && parseInt(inputCustom.value) > 0){
+        totalTip = parseFloat(inputBill.value) * customTip / parseInt(inputPeople.value);
+        totalBill = parseFloat(inputBill.value) / parseInt(inputPeople.value) + totalTip;
 
         tipText.innerText = totalTip.toFixed(2);
         totalText.innerText = totalBill.toFixed(2);
+    } else {
+
+    }
+
+    // adds reset button functionality if input is true
+    if(inputPeople.value != ''){
+        resetBtn.classList.add('btn-color');
+    }
+    else if(inputPeople.value == '' && inputBill.value == ''){
+        resetBtn.classList.remove('btn-color');
     }
 });
 
+// checks if there is an input for Number of People and if not it throws an error
+inputPeople.addEventListener('blur', ()=>{
+    if(inputBill.value != ''){
+        error.classList.add('visibility');
+    }
 
+    if(inputPeople.value != ''){
+        error.classList.remove('visibility');
+    }
+
+    if(parseInt(inputPeople.value) < 0){
+        errorNeg.classList.add('visibility');
+    }
+});
 
 
 percentages.forEach(percentage => {
@@ -60,7 +131,16 @@ percentages.forEach(percentage => {
         inputCustom.value = '';
         (document.querySelector('.clicked')) ? document.querySelector('.clicked').classList.remove('clicked') : '';
         percentage.classList.add('clicked');
-    })
+    });
+
+    inputCustom.addEventListener('input', () =>{
+        percentage.classList.remove('clicked');
+    });
+
+    // adds reset button functionality if input is true
+    percentage.addEventListener('click', () =>{
+        resetBtn.classList.add('btn-color');
+    }); 
 
     // calculations
     percentage.addEventListener('click', (e) => {
@@ -74,7 +154,9 @@ percentages.forEach(percentage => {
         // calculates the totals if both input fields are filled in
         if(inputBill.value == '' || inputPeople.value == ''){
 
-        } else {
+        }
+
+        if(parseFloat(inputBill.value) > 0 && parseInt(inputPeople.value) > 0){
             totalTip = inputBill.value * tip / inputPeople.value;
             totalBill = inputBill.value / inputPeople.value + totalTip;
 
@@ -84,8 +166,8 @@ percentages.forEach(percentage => {
 
 
         // thanks to this article https://data-flair.training/blogs/javascript-event-types/
-        inputBill.addEventListener('input', (e)=>{
-            if(inputPeople.value != ''){
+        inputBill.addEventListener('input', ()=>{
+            if(parseFloat(inputBill.value) > 0 && parseInt(inputPeople.value) > 0){
                 totalTip = inputBill.value * tip / inputPeople.value;
                 totalBill = inputBill.value / inputPeople.value + totalTip;
 
@@ -94,14 +176,36 @@ percentages.forEach(percentage => {
             }
         });
 
+        // checks if the Bill amount is negative and so not it throws an error
+        inputBill.addEventListener('blur', ()=>{
+            if(parseInt(inputBill.value) < 0){
+                errorBillNeg.classList.add('visibility');
+            }
+
+            if(parseInt(inputBill.value) > 0){
+                errorBillNeg.classList.remove('visibility');
+            }
+        });
+
         inputPeople.addEventListener('input', ()=>{
 
-            if(inputBill.value != ''){
+            if(parseFloat(inputBill.value) > 0 && parseInt(inputPeople.value) > 0){
                 totalTip = inputBill.value * tip / inputPeople.value;
                 totalBill = inputBill.value / inputPeople.value + totalTip;
 
                 tipText.innerText = totalTip.toFixed(2);
                 totalText.innerText = totalBill.toFixed(2);
+            }
+        });
+
+        // checks if the Number of People amount is negative and so not it throws an error
+        inputPeople.addEventListener('blur', ()=>{
+            if(parseInt(inputPeople.value) < 0){
+                errorNeg.classList.add('visibility');
+            }
+
+            if(parseInt(inputPeople.value) > 0){
+                errorNeg.classList.remove('visibility');
             }
         });
 
@@ -115,6 +219,11 @@ percentages.forEach(percentage => {
             totalText.innerText = '$0.00';
             inputBill.style.border = 'none';
             inputPeople.style.border = 'none';
+            resetBtn.classList.remove('btn-color');
+            error.classList.remove('visibility');
+            errorNeg.classList.remove('visibility');
+            errorBill.classList.remove('visibility');
+            errorBillNeg.classList.remove('visibility');
         });
     });
 });
@@ -138,10 +247,14 @@ resetBtn.addEventListener('click', ()=> {
     inputBill.value = '';
     inputPeople.value = '';
     inputCustom.value = '';
-    // percentage.classList.remove('clicked');
     tipText.innerText = '$0.00';
     totalText.innerText = '$0.00';
     inputBill.style.border = 'none';
     inputPeople.style.border = 'none';
+    resetBtn.classList.remove('btn-color');
+    error.classList.remove('visibility');
+    errorNeg.classList.remove('visibility');
+    errorBill.classList.remove('visibility');
+    errorBillNeg.classList.remove('visibility');
 });
 
