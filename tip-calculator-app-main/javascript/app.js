@@ -2,9 +2,7 @@ const inputBill = document.getElementById('bill');
 const inputPeople = document.getElementById('number-of-people');
 const inputCustom = document.getElementById('custom');
 const error = document.getElementById('error-msg-ppl');
-const errorNeg = document.getElementById('error-msg-ppl-negative');
 const errorBill = document.getElementById('error-msg');
-const errorBillNeg = document.getElementById('error-msg-negative');
 const percentages = document.querySelectorAll('.buttons');
 const tipText = document.getElementById('tip-amount');
 const totalText = document.getElementById('tip-total');
@@ -69,6 +67,7 @@ inputBill.addEventListener('input', ()=>{
 // checks if there is an input for Bill and if not it throws an error
 inputBill.addEventListener('blur', ()=>{
     if(inputBill.value == ''){
+        errorBill.innerText = "Can't be zero";
         errorBill.classList.add('visibility');
     }
 
@@ -80,11 +79,12 @@ inputBill.addEventListener('blur', ()=>{
 // checks if the Bill amount is negative and so not it throws an error
 inputBill.addEventListener('blur', ()=>{
     if(parseInt(inputBill.value) < 0){
-        errorBillNeg.classList.add('visibility');
+        errorBill.innerText = "Can't be negative";
+        errorBill.classList.add('visibility');
     }
 
     if(parseInt(inputBill.value) > 0){
-        errorBillNeg.classList.remove('visibility');
+        errorBill.classList.remove('visibility');
     }
 });
 
@@ -112,6 +112,7 @@ inputPeople.addEventListener('input', ()=>{
 // checks if there is an input for Number of People and if not it throws an error
 inputPeople.addEventListener('blur', ()=>{
     if(inputBill.value != ''){
+        error.innerText = "Can't be zero";
         error.classList.add('visibility');
     }
 
@@ -120,7 +121,8 @@ inputPeople.addEventListener('blur', ()=>{
     }
 
     if(parseInt(inputPeople.value) < 0){
-        errorNeg.classList.add('visibility');
+        error.innerText = "Can't be negative";
+        error.classList.add('visibility');
     }
 });
 
@@ -221,9 +223,7 @@ percentages.forEach(percentage => {
             inputPeople.style.border = 'none';
             resetBtn.classList.remove('btn-color');
             error.classList.remove('visibility');
-            errorNeg.classList.remove('visibility');
             errorBill.classList.remove('visibility');
-            errorBillNeg.classList.remove('visibility');
         });
     });
 });
@@ -253,8 +253,6 @@ resetBtn.addEventListener('click', ()=> {
     inputPeople.style.border = 'none';
     resetBtn.classList.remove('btn-color');
     error.classList.remove('visibility');
-    errorNeg.classList.remove('visibility');
     errorBill.classList.remove('visibility');
-    errorBillNeg.classList.remove('visibility');
 });
 
