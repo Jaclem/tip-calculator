@@ -1,4 +1,4 @@
-## Project Title
+## Tip Calculator
 This project was developed to test my skills in JavaScript to create a tip calculator for use when going out with friends & family. It is simple to use and all bugs have been worked out of the site. 
 
 Initially inspired by https://www.frontendmentor.io/ 
